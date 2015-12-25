@@ -1,0 +1,18 @@
+<ion-view view-title="Web">
+  <ion-content ng-controller="WebCtrl">
+    <div class="list">
+
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" ng-model="url" placeholder="Search">
+        </label>
+        <button class="button button-small button-positive" ng-click="clickbtn()">
+          Simplify page
+        </button>
+      </div>
+
+    </div>
+    <div class="error">{{error}}</div>
+    <div ng-bind-html="content | sanitize"></div>
+  </ion-content>
+</ion-view>
