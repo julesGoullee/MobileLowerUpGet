@@ -1,10 +1,4 @@
 {
   "name": "MobileLowerUpGet",
-  "app_id": "",
-  "proxies": [
-    {
-     "path": "/api",
-     "proxyUrl": "https://lower-up-get.herokuapp.com"
-    }
-  ]
+  "app_id": ""
 }
