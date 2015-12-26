@@ -10,6 +10,7 @@ angular.module('lower-up-get.controllers', [])
     var paramsApi_GPageSpeed = '&filter_third_party_resources=true&screenshot=false&strategy=mobile&fields=pageStats&key=' + KEY_GOOGLE_PAGE_SPEED;
     
     var apiBaseUrl = API + "/get?url=";
+    $scope.renderFinish = false;
     $scope.url = "http://google.fr";
     $scope.content = "";
     $scope.error = "";
@@ -56,10 +57,12 @@ angular.module('lower-up-get.controllers', [])
     }
     
     function getUrl(){
+      $scope.renderFinish = false;
       $http.get(apiBaseUrl + $scope.url)
         .success(function(content){
           $scope.stats.appReq.totalSize = BytestoHumanValue(content.length);
           $scope.content = content;
+          $scope.renderFinish = true;
         })
         .error(function(err){
           $scope.error = err || "Api error";

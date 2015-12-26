@@ -1,10 +1,10 @@
-<ion-view view-title="Web">
+<ion-view view-title="Simple and fast web site render">
   <ion-content ng-controller="WebCtrl">
     <div class="list">
 
       <div class="item item-input-inset">
         <label class="item-input-wrapper">
-          <input type="text" ng-model="url" placeholder="Search">
+          <input type="text" id="input-adresse" ng-model="url" placeholder="Search">
         </label>
         <button class="button button-small button-positive" ng-click="clickbtn()">
           Simplify page
@@ -13,8 +13,10 @@
 
     </div>
     <div class="error">{{error}}</div>
-    <div>Originale:{{stats.compare}}</div>
-    <div>With this app:{{stats.appReq}}</div>
+    <ul ng-show="renderFinish">
+      <div>Originale:{{stats.compare}}</div>
+      <div>With this app:{{stats.appReq}}</div>
+    </ul>
     <div ng-bind-html="content | sanitize"></div>
   </ion-content>
 </ion-view>
