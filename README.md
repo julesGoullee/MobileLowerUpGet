@@ -8,3 +8,6 @@ Ionic hybrid app.
 
 ## Android apk preview:
 Try it! [LowerUpGet_beta.apk](https://raw.githubusercontent.com/julesGoullee/MobileLowerUpGet/master/lowerUpGet_beta.apk)
+
+##Mobile app use server api:
+Source is [https://github.com/julesGoullee/LowerUpGet](https://github.com/julesGoullee/LowerUpGet)
