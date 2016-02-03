@@ -9,7 +9,7 @@ angular.module('lower-up-get.controllers', [])
     var urlApi_GPageSpeed = 'https://www.googleapis.com/pagespeedonline/v2/runPagespeed?url=';
     var paramsApi_GPageSpeed = '&filter_third_party_resources=true&screenshot=false&strategy=mobile&fields=pageStats&key=' + KEY_GOOGLE_PAGE_SPEED;
     
-    var apiBaseUrl = API + "/get?url=";
+    var apiBaseUrl = API + "/get?address=";
     $scope.renderFinish = false;
     $scope.url = "http://google.fr";
     $scope.content = "";
