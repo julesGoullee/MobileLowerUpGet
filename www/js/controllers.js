@@ -92,7 +92,7 @@ angular.module('lower-up-get.controllers', [])
     
     $scope.clickbtn = function(){
       if($scope.url && $scope.url.length > 0){
-        if( !$scope.url.includes('http', 0) ){
+        if( $scope.url.indexOf('http') !== 0 ){
           $scope.url = 'http://' + $scope.url;
         }
         $scope.content = "Rendering " + $scope.url + " ....";
