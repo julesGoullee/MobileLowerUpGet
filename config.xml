@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.lowerupget.app" version="0.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>MobileLowerUpGet</name>
+<widget id="com.leanupbrowser.app" version="0.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>Lean up browser</name>
   <description>
         Web browser.
     </description>
-  <author email="julesgoullee@gmail.com" href="https://lower-up-get.herokuapp.com">
+  <author email="julesgoullee@gmail.com" href="https://github.com/julesGoullee">
         Jules goullée
     </author>
   <access origin="*"/>
