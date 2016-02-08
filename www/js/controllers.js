@@ -6,7 +6,6 @@ angular.module('lower-up-get.controllers', [])
     }
   }])
   .controller('WebCtrl', function(API, KEY_GOOGLE_PAGE_SPEED,  $scope, $http, $timeout) {
-    try {
       var urlApi_GPageSpeed = 'https://www.googleapis.com/pagespeedonline/v2/runPagespeed?url=';
       var paramsApi_GPageSpeed = '&filter_third_party_resources=true&screenshot=false&strategy=mobile&fields=pageStats&key=' + KEY_GOOGLE_PAGE_SPEED;
       var apiBaseUrl = API + '/get/';
@@ -100,14 +99,20 @@ angular.module('lower-up-get.controllers', [])
           var input = e.currentTarget[i];
           if (input.name && input.value) {
 
-            if (i === 0) {
-              params += '?';
+            if(input.type !== 'submit' || input.name === this.submitName){
+
+
+              if (i === 0) {
+                params += '?';
+              }
+
+              if (i !== 0) {
+                params += '&';
+              }
+              params += input.name + '=' + input.value.replace(' ', '+');
+
             }
 
-            if (i !== 0) {
-              params += '&';
-            }
-            params += input.name + '=' + input.value;
           }
 
         }
@@ -144,7 +149,7 @@ angular.module('lower-up-get.controllers', [])
 
             if (pathAndParams[1] && pathAndParams[1].length > 1) {
 
-              params = '?' + pathAndParams[1];
+              params = '?' + pathAndParams[1].replace(' ', '+');
 
             }
 
@@ -177,16 +182,31 @@ angular.module('lower-up-get.controllers', [])
 
             }
 
-            var form = iframeDoc.getElementsByTagName('form');
+            var forms = iframeDoc.getElementsByTagName('form');
 
-            for (var j = 0; j < form.length; j++) {
+            for (var j = 0; j < forms.length; j++) {
 
-              form[j].addEventListener('submit', onsubmit, false);
+              var form = forms[j];
+              form.addEventListener('submit', onsubmit);
+
+              for (var k = 0; k < form.length; k++) {
+
+                var input = form[k];
+
+                if(input.type === 'submit'){
+
+                  input.addEventListener('click', function(){
+                    form.submitName = input.name;
+                  }, false);
+
+                }
+
+              }
 
             }
 
             window.frames.iframeSite.setAttribute('width', '100%');
-            window.frames.iframeSite.setAttribute('height', (document.body.scrollHeight - document.getElementById('header').scrollHeight) + "px");
+            window.frames.iframeSite.setAttribute('height', (document.getElementById('content').offsetHeight - document.getElementById('header').scrollHeight) + "px");
             $scope.loading = '';
             $scope.renderFinish = true;
           })
@@ -234,8 +254,5 @@ angular.module('lower-up-get.controllers', [])
         }
 
       };
-    }catch(e){
-      $scope.content = e;
-    }
     
   });
